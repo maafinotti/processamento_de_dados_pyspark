@@ -1,0 +1,36 @@
+#criar um data frame simples, sem schema
+from pyspark.sql import SparkSession
+df1 = spark.createDataFrame([("Pedro",10),("Maria",20),("José",40)])
+#show é ação, então tudo o que foi feito anteriormente é executado, lazzy
+df1.show()
+
+#criar df com schema
+schema = "Id INT, Nome STRING"
+dados = [[1,"Pedro"],[2,"Maria"]]
+df2 = spark.createDataFrame(dados, schema)
+df2.show()
+df2.show(l) 
+
+#com transformação
+from pyspark.sql.functions import sum
+schema2 = "Produtos STRING, Vendas INT"
+vendas = [["Caneta",10],["Lápis",20],["Caneta",40]]
+df3 = spark.createDataFrame(vendas , schema2 )
+agrupado = df3.groupBy("Produto").agg(sum("Vendas"))
+agrupado.show()
+#podemos contatenar as operações, neste caso sem persitir
+df3.groupBy("Produtos").agg(sum("Vendas")).show()
+
+#selecionar colunas específicas
+df3.select("Produtos").show()
+df3.select("Produtos","Vendas").show()
+
+#expressões e select
+from pyspark.sql.functions import expr
+df3.select("Produtos", "Vendas", expr("Vendas * 0.2")).show()
+
+#para ver o schema
+df3.schema()
+
+#ver colunas
+df3.columns
