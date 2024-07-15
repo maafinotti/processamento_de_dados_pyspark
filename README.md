@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*MwZZjt-IlJU0TFaZxfBz1Q.jpeg" width="50">
+  <img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*MwZZjt-IlJU0TFaZxfBz1Q.jpeg" width="100">
 </p> 
 
 <h1 align="center">Processamento de Dados Utilizando PySpark </h1>
